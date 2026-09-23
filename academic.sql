@@ -1,23 +1,58 @@
--- Banco de dados do projeto Academic (Gerenciador de Eventos Acadêmicos/Palestras)
--- Importe este arquivo no phpMyAdmin (ou rode via linha de comando) antes de usar o site.
+CREATE DATABASE  IF NOT EXISTS `academic` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `academic`;
+-- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: academic
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.4.32-MariaDB
 
-CREATE DATABASE IF NOT EXISTS academic CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE academic;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Estrutura da tabela `eventos`
-CREATE TABLE IF NOT EXISTS eventos (
-  id INT(11) NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(150) NOT NULL,
-  palestrante VARCHAR(150) NOT NULL,
-  data_evento DATE NOT NULL,
-  horario TIME NOT NULL,
-  local VARCHAR(150) NOT NULL,
-  vagas_disponiveis INT(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Table structure for table `eventos`
+--
 
--- Dados de exemplo
-INSERT INTO eventos (nome, palestrante, data_evento, horario, local, vagas_disponiveis) VALUES
-('Semana de Tecnologia', 'Dra. Ana Ribeiro', '2026-10-14', '14:00:00', 'Auditório Central', 60),
-('Palestra sobre Inteligência Artificial', 'Prof. Carlos Menezes', '2026-10-20', '19:00:00', 'Sala 204 - Bloco B', 40),
-('Workshop de Banco de Dados', 'Msc. Fernanda Alves', '2026-11-05', '09:30:00', 'Laboratório 3', 25);
+DROP TABLE IF EXISTS `eventos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `eventos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) NOT NULL,
+  `palestrante` varchar(150) NOT NULL,
+  `data_evento` date NOT NULL,
+  `horario` time NOT NULL,
+  `local` varchar(150) NOT NULL,
+  `vagas_disponiveis` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `eventos`
+--
+
+LOCK TABLES `eventos` WRITE;
+/*!40000 ALTER TABLE `eventos` DISABLE KEYS */;
+INSERT INTO `eventos` VALUES (1,'Semana de Tecnologia','Dra. Ana Ribeiro','2026-10-14','14:00:00','Auditório Central',60),(3,'Workshop de Banco de Dados','Maia Alves','2026-11-05','11:30:00','Laboratório 3',32),(4,'Feira Tecnológica','Carlos Alberto','2026-11-21','14:30:00','Quadra',99),(5,'Palestra Arduino','Pedro Ferreira','2026-05-21','15:30:00','Sala 8 - Bloco B',40);
+/*!40000 ALTER TABLE `eventos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-09-23  7:29:14
