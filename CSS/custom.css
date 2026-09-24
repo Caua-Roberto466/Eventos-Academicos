@@ -1,0 +1,175 @@
+/* ============================================================
+   Academic — tema elegante em cima do Bootstrap 5
+   Importar DEPOIS do bootstrap.min.css no <head>
+   ============================================================ */
+
+:root {
+    --bs-primary: #7c2d3a;
+    --bs-primary-rgb: 124, 45, 58;
+    --bs-success: #4c6b4f;
+    --bs-success-rgb: 76, 107, 79;
+    --bs-danger: #a4443a;
+    --bs-danger-rgb: 164, 68, 58;
+    --cor-acento: #b08d57;
+    --cor-fundo: #f6f4f1;
+    --cor-borda: #e7e2da;
+    --cor-texto-suave: #7a756e;
+    --cor-editar: #3c6e71;
+    --cor-editar-rgb: 60, 110, 113;
+    --cor-editar-escura: #2c5254;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--cor-fundo);
+    background-image: radial-gradient(circle at top left, rgba(176, 141, 87, 0.08), transparent 45%);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ---------- Cartão principal ---------- */
+
+.card-academic {
+    border: 1px solid var(--cor-borda);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(43, 42, 40, 0.06);
+}
+
+.page-header {
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.page-header h2 {
+    color: var(--bs-primary);
+}
+
+/* ---------- Tabela de eventos ---------- */
+
+.table-academic thead th {
+    text-transform: uppercase;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    color: var(--cor-acento);
+    border-bottom-width: 2px;
+    font-weight: 700;
+}
+
+.badge-vagas {
+    background-color: rgba(var(--bs-success-rgb), .12) !important;
+    color: var(--bs-success) !important;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: .4em .8em;
+}
+
+/* ---------- Botões customizados ---------- */
+
+.btn-academic-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+    border-radius: 999px;
+}
+
+.btn-academic-primary:hover,
+.btn-academic-primary:focus {
+    background-color: #601f29;
+    border-color: #601f29;
+    color: #fff;
+}
+
+.btn-outline-academic-danger {
+    color: var(--bs-danger);
+    border: 1px solid rgba(var(--bs-danger-rgb), .4);
+    border-radius: 999px;
+    background: transparent;
+}
+
+.btn-outline-academic-danger:hover {
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+    color: #fff;
+}
+
+/* Botão "Editar" na tabela — mesmo formato em pílula do "Excluir" */
+.btn-editar-academic {
+    color: #3c6e71;
+    border: 1px solid #3c6e71;
+    border-radius: 999px;
+    background: transparent;
+}
+
+.btn-editar-academic:hover {
+    background-color: #3c6e71;
+    border-color: #3c6e71;
+    color: #fff;
+}
+
+/* Botão "Cancelar" nos formulários — discreto, mas na mesma linguagem visual */
+.btn-cancelar-academic {
+    color: var(--cor-texto-suave);
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    background: transparent;
+}
+
+.btn-cancelar-academic:hover {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-suave);
+    border-color: var(--cor-borda);
+}
+
+/* ---------- Animações ---------- */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutRow {
+    to { opacity: 0; transform: translateX(16px); }
+}
+
+.animate-fade-in {
+    animation: fadeInUp .5s ease both;
+}
+
+/* Cada linha da tabela entra com um pequeno atraso em cascata */
+.table-academic tbody tr {
+    animation: fadeInUp .4s ease both;
+}
+
+.table-academic tbody tr:nth-child(1) { animation-delay: .03s; }
+.table-academic tbody tr:nth-child(2) { animation-delay: .06s; }
+.table-academic tbody tr:nth-child(3) { animation-delay: .09s; }
+.table-academic tbody tr:nth-child(4) { animation-delay: .12s; }
+.table-academic tbody tr:nth-child(5) { animation-delay: .15s; }
+.table-academic tbody tr:nth-child(n+6) { animation-delay: .18s; }
+
+.row-removing {
+    animation: fadeOutRow .3s ease forwards;
+}
+
+.btn-academic-primary,
+.btn-outline-academic-danger,
+.btn-editar-academic,
+.btn-cancelar-academic,
+.badge-vagas {
+    transition: transform .15s ease, background-color .2s ease, color .2s ease;
+}
+
+.btn-academic-primary:hover,
+.btn-outline-academic-danger:hover,
+.btn-editar-academic:hover,
+.btn-cancelar-academic:hover {
+    transform: translateY(-2px);
+}
+
+/* Foco elegante nos campos do formulário (sobrescreve o azul padrão do Bootstrap) */
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .15);
+}
